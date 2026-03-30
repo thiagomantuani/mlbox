@@ -2,8 +2,9 @@
 mlbox.base
 ----------
 Abstract base classes that define the contracts for all estimators in mlbox.
-"""
 
+"""
+ 
 from __future__ import annotations
 
 import abc
