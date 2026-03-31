@@ -178,9 +178,11 @@ def _xgboost_params(
     y_val: np.ndarray,
     config: EarlyStoppingConfig,
 ) -> dict[str, Any]:
+    # XGBoost >= 2.0: early_stopping_rounds foi movido para o CONSTRUTOR
+    # do XGBModel — não é mais aceito no fit(). Aqui só passamos eval_set.
+    # Configure early_stopping_rounds=N direto no XGBRegressor/XGBClassifier.
     return {
         "eval_set": [(X_val, y_val)],
-        "early_stopping_rounds": config.rounds,
         "verbose": config.verbose,
     }
 
